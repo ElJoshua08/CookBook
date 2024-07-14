@@ -11,7 +11,7 @@ const Header = () => {
   }, [location])
 
   return (
-    <div className="absolute ml-2 mt-2 flex max-h-12 min-w-[calc(100%-16px)] items-center justify-between gap-5 rounded-md bg-zinc-700 py-3 shadow-md shadow-zinc-700/50">
+    <div className="absolute ml-2 mt-2 flex max-h-12 min-w-[calc(100%-16px)] items-center justify-between gap-5 rounded-md bg-gray-700 py-3 shadow-md shadow-gray-700/50">
       {/* logo and title */}
       <div className="flex h-full items-center justify-start gap-2 pl-2">
         <img
@@ -49,7 +49,7 @@ const LinkComponent = ({ link }) => {
     <Link to={link.href} className="flex flex-row justify-center gap-2">
       <span className="hidden">{link.icon}</span>
       <p
-        className={`${actualPage === link.href ? 'bg-zinc-600' : 'bg-transparent'} rounded-md px-3 py-1 text-xs font-normal text-zinc-300`}
+        className={`${actualPage === link.href ? 'bg-gray-600' : 'bg-transparent'} rounded-md px-3 py-1 text-xs font-normal text-gray-300`}
       >
         {link.name}
       </p>

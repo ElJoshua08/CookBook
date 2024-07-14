@@ -1,5 +1,9 @@
 const Card = () => {
-  return <div className="w-2/5 h-36 bg-zinc-700 rounded-md flex flex-col justify-center items-center">
-    This is just a card
-  </div>
+  return (
+    <div className="flex h-36 w-44 flex-col items-center justify-center rounded-md bg-gray-700">
+      This is just a card
+    </div>
+  )
 }
+
+export default Card

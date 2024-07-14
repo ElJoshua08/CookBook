@@ -34,8 +34,8 @@ export default {
       fontFamily: {
         lobster: ['Lobster', 'sans-serif'],
         nunito: ['Nunito', 'sans-serif'],
-      }
+      },
     },
   },
   plugins: [],
-};
+}

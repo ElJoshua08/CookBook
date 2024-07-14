@@ -9,11 +9,11 @@ import Header from '@/components/Header'
 
 function App() {
   return (
-    <div className="bg-zinc-900 *:font-nunito">
+    <div className="bg-gray-900 *:font-nunito">
       <Router>
         <Header />
         {/* This is div is to divide the header from the content (add the padding) */}
-        <div className="pt-16 min-h-screen">
+        <div className="min-h-screen p-2 pt-[68px]">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<h1>About</h1>} />
