@@ -1,9 +1,17 @@
-import { FaHeart, FaHome } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
+import usePageStore from '@/stores/usePageStore'
+import { useEffect } from 'react'
 
 const Header = () => {
+  const { setActualPage } = usePageStore()
+  const location = useLocation()
+
+  useEffect(() => {
+    setActualPage(location.pathname)
+  }, [location])
+
   return (
-    <div className="absolute ml-5 mt-5 flex max-h-16 min-w-[calc(100%-40px)] items-center justify-between gap-5 rounded-md bg-zinc-700 py-3 shadow-md shadow-zinc-700/50">
+    <div className="absolute ml-2 mt-2 flex max-h-12 min-w-[calc(100%-16px)] items-center justify-between gap-5 rounded-md bg-zinc-700 py-3 shadow-md shadow-zinc-700/50">
       {/* logo and title */}
       <div className="flex h-full items-center justify-start gap-2 pl-2">
         <img
@@ -21,21 +29,31 @@ const Header = () => {
 }
 
 const Nav = () => {
-  const links = [
-    { name: 'Home', href: '/', icon: <FaHome /> },
-    { name: 'Favorites', href: '/favorites', icon: <FaHeart /> },
-  ]
-
-  console.log(links.map(link => link.name))
+  const links = usePageStore((state) => state.navPages)
 
   return (
-    <ul className="flex items-center justify-between gap-5">
-      {/* {links.map((link, index) => (
-        <li key={index} className="flex items-center gap-2">
+    <ul className="flex items-center justify-between gap-2 px-2">
+      {links.map((link, index) => (
+        <li key={index} className="flex items-center justify-center">
+          <LinkComponent link={link} />
         </li>
-      ))} */}
-      <Link to="/">Home</Link>
+      ))}
     </ul>
+  )
+}
+
+const LinkComponent = ({ link }) => {
+  const actualPage = usePageStore((state) => state.actualPage)
+
+  return (
+    <Link to={link.href} className="flex flex-row justify-center gap-2">
+      <span className="hidden">{link.icon}</span>
+      <p
+        className={`${actualPage === link.href ? 'bg-zinc-600' : 'bg-transparent'} rounded-md px-3 py-1 text-xs font-normal text-zinc-300`}
+      >
+        {link.name}
+      </p>
+    </Link>
   )
 }
 

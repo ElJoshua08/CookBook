@@ -4,11 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.App {
-  @apply bg-zinc-800;
-
-}
-
 body {
   &::-webkit-scrollbar {
     appearance: none;
@@ -17,6 +12,6 @@ body {
   }
 
   &::-webkit-scrollbar-thumb {
-    @apply bg-emerald rounded-full;
+    @apply rounded-full bg-emerald;
   }
 }

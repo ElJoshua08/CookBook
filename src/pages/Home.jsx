@@ -1,5 +1,7 @@
 const Home = () => {
-  return (<div className="w-full min-h-screen bg-zinc-800"></div>)
+  return <div className="flex w-full flex-grow">
+    
+  </div>
 }
 
-export default Home;
+export default Home
